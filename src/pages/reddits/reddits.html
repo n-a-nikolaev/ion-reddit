@@ -21,7 +21,7 @@
       </ion-thumbnail>
       <h2>{{post.title}}</h2>
       <p>{{post.author}}</p>
-      <button ion-button clear item-right>View</button>
+      <button ion-button clear item-right (click)="viewDetails(post)">View</button>
     </ion-item>
   </ion-list>
 </ion-content>
