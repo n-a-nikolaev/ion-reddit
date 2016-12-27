@@ -2,16 +2,16 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { RedditsPage } from '../pages/reddits/reddits';
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
-    HomePage,
+    RedditsPage,
+    SettingsPage,
     TabsPage
   ],
   imports: [
@@ -21,10 +21,10 @@ import { TabsPage } from '../pages/tabs/tabs';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
-    HomePage,
+    RedditsPage,
+    SettingsPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
-export class AppModule {}
+export class AppModule { }
