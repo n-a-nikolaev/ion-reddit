@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { RedditService } from '../../providers/reddit-service';
 import { DetailsPage } from '../details/details';
 import { SettingsService } from '../../providers/settings-service';
+import { AppSettings } from '../../types/app-settings.interface';
 
 @Component({
   selector: 'page-reddits',
@@ -10,7 +11,7 @@ import { SettingsService } from '../../providers/settings-service';
 })
 export class RedditsPage {
   public posts: any[] = [];
-  public settings: any = {};
+  public settings: AppSettings;
 
   constructor(
     public navCtrl: NavController,
@@ -24,7 +25,6 @@ export class RedditsPage {
   /**
    * @description
    * Lifecycle hook
-   * 
    * 
    * @memberOf RedditsPage
    */

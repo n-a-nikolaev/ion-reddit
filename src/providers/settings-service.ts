@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { APP_DEFAULTS } from '../app/app.config';
+import { AppSettings } from '../types/app-settings.interface';
 
 @Injectable()
 export class SettingsService {
   private localStorageKey: string = 'settings';
   private defaultSettings: any = {
-    category: APP_DEFAULTS.category,
-    limit: APP_DEFAULTS.limit
+    category: 'sports',
+    limit: 5
   }
 
   /**
@@ -18,7 +18,7 @@ export class SettingsService {
    * @memberOf SettingsService
    */
   public getSettings(): any {
-    return JSON.parse(localStorage.getItem(this.localStorageKey));
+    return JSON.parse(localStorage.getItem(this.localStorageKey)) as AppSettings;
   }
 
   /**
@@ -29,7 +29,7 @@ export class SettingsService {
    * 
    * @memberOf SettingsService
    */
-  public setSettings(settings: any) {
+  public setSettings(settings: AppSettings) {
     localStorage.setItem(this.localStorageKey, JSON.stringify(settings));
   }
 
