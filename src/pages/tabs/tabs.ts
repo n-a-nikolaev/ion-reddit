@@ -13,8 +13,4 @@ export class TabsPage {
   tab1Root: any = RedditsPage;
   tab2Root: any = AboutPage;
   tab3Root: any = SettingsPage;
-
-  constructor() {
-
-  }
 }

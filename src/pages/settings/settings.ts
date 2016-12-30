@@ -1,22 +1,48 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { SettingsService } from '../../providers/settings-service';
 
-/*
-  Generated class for the Settings page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
 })
 export class SettingsPage {
+  private settings: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
+  constructor(
+    public toastCtrl: ToastController,
+    private settingsService: SettingsService
+  ) {
+    this.settings = this.settingsService.getSettings();
   }
 
+  /**
+   * @description
+   * Create toast message with close button
+   * 
+   * @private
+   * 
+   * @memberOf SettingsPage
+   */
+  private showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'App settings were successfully saved',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
+  }
+
+  /**
+   * @description
+   * Save settings to localStorage and show toast message
+   * 
+   * @private
+   * 
+   * @memberOf SettingsPage
+   */
+  private setSettings() {
+    this.settingsService.setSettings(this.settings);
+    this.showToastWithCloseButton();
+  }
 }
